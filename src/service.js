@@ -5,7 +5,7 @@
 
 
 async function start () {
-
+/*
     let removeProcessEventListeners;
     let app;
 
@@ -46,11 +46,11 @@ async function start () {
         isStopped = true;
         logger.info('Service stopped');
     };
-
+*/
 }
 
-function appendProcessEventListeners(logger, stopService) {
-    const logger = logger.child({ fn: 'appendProcessEventListeners' });
+function appendProcessEventListeners(glogger, stopService) {
+    const logger = glogger.child({ fn: 'appendProcessEventListeners' });
 
     const handlers = {
         warning(err) {
@@ -75,4 +75,5 @@ function appendProcessEventListeners(logger, stopService) {
 
     return () => each(handlers, (handler, name) => process.removeListener(name, handler));
 }
+
 module.export = {start};
